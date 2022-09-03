@@ -3,21 +3,18 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <section className='player_list'>
+        <div className='player_info'></div>
+        <div className='player_info alt'></div>
+        <div className='player_info'></div>
+        <div className='player_info alt'></div>
+        <div className='player_info'></div>
+      </section>
+      <canvas id="Drawing_Zone" className='canvas_zone' width={900} height={600}></canvas>
+      <section className='chat_zone'>
+        <div className='chat_content'>Deltyx : blablabalbalblablablalbablabla</div>
+      </section>
     </div>
   );
 }
