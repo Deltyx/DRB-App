@@ -1,49 +1,70 @@
+@import './../../style/Theme.scss';
+
 .LobbyManager-wrapper{
     display: flex;
     flex-direction: column;
 
     width: 350px;
-    gap: 0.5rem;
 }
 
 .JoinLobby-form {
     display: flex;
     flex-direction: column;
 
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .JoinLobby-input {
-    height: 32px;
-    font-size: 18px;
-    border-radius: 5px;
+    height: 44px;
+
+    font-size: 22px;
     text-align: center;
+    font-family: $TEXT_FONT;
+
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .JoinLobby-btn {
-    height: 32px;
-    font-size: 20px;
+    height: 44px;
     width: 50%;
 
-    background-color: coral;
+    font-size: 22px;
+    font-family: $TEXT_FONT;
+
+    background-color: $TERTIARY_BACKGROUND_COLOR;
     color: white;
-    border: none;
+
+    border: 1px solid $TERTIARY_BACKGROUND_COLOR;
     border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out;
 }
 
-.JoinLobby-btn:hover, .CreateLobby-btn:hover {
+.JoinLobby-btn:hover,
+.JoinLobby-btn:focus, 
+.CreateLobby-btn:hover,
+.CreateLobby-btn:focus {
     cursor: pointer;
+    background-color: $SECONDARY_BACKGROUND_COLOR;
+    color: $TERTIARY_BACKGROUND_COLOR;
 }
 
 .CreateLobby-btn {
-    height: 32px;
-    font-size: 20px;
+    height: 44px;
     width: 50%;
 
-    background-color: coral;
+    font-size: 22px;
+    font-family: $TEXT_FONT;
+
+    background-color: $TERTIARY_BACKGROUND_COLOR;
     color: white;
-    border: none;
+
+    border: 1px solid $TERTIARY_BACKGROUND_COLOR;
     border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out;
 }
 
 .LobbyManagerBtn-wrapper {
