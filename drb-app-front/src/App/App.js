@@ -1,21 +1,18 @@
-import logo from '../img/logo.svg';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import Home from './../view/Home/Home.js';
+import Lobby from '../view/Lobby/Lobby.js';
+
 import './App.scss';
 
 function App() {
   return (
-    <div className="container">
-      <section className='player_list'>
-        <div className='player_info'></div>
-        <div className='player_info alt'></div>
-        <div className='player_info'></div>
-        <div className='player_info alt'></div>
-        <div className='player_info'></div>
-      </section>
-      <canvas id="Drawing_Zone" className='canvas_zone' width={900} height={600}></canvas>
-      <section className='chat_zone'>
-        <div className='chat_content'>Deltyx : blablabalbalblablablalbablabla</div>
-      </section>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/lobby/:lobbyId" element={<Lobby />} />
+      </Routes>
+    </Router>
   );
 }
 

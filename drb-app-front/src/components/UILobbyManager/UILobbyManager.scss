@@ -1,0 +1,54 @@
+.LobbyManager-wrapper{
+    display: flex;
+    flex-direction: column;
+
+    width: 350px;
+    gap: 0.5rem;
+}
+
+.JoinLobby-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.5rem;
+}
+
+.JoinLobby-input {
+    height: 32px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.JoinLobby-btn {
+    height: 32px;
+    font-size: 20px;
+    width: 50%;
+
+    background-color: coral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.JoinLobby-btn:hover, .CreateLobby-btn:hover {
+    cursor: pointer;
+}
+
+.CreateLobby-btn {
+    height: 32px;
+    font-size: 20px;
+    width: 50%;
+
+    background-color: coral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.LobbyManagerBtn-wrapper {
+    display: flex;
+
+    justify-content: center;
+    gap: 0.5rem;
+}

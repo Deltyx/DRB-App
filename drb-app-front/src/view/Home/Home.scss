@@ -1,0 +1,12 @@
+@import './../../style/Theme.scss';
+
+.Home-container {
+    background: $PRIMARY_BACKGROUND_COLOR;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
