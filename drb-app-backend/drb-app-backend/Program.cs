@@ -22,7 +22,6 @@ app.UseAuthorization();
 
 // TODO : only show Razor page on DEBUG
 app.MapRazorPages();
-app.MapHub<ChatHub>("/chatHub");
-app.MapHub<LobbyHub>("/lobbyHub");
+app.MapHub<DrbHub>("/drb");
 
 app.Run();
