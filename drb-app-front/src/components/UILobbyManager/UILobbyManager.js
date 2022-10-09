@@ -18,8 +18,8 @@ export default function UILobbyManager(props) {
         }
     }
     const handleCreate = (evt) => {
+        // TO DO LA CREATION ICI
         evt.preventDefault();
-        alert("Yousk2")
     }
 
     return (
