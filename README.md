@@ -1,3 +1,15 @@
+# Getting Started drb-app-back
+
+## Run backend
+
+To run Backend application, build the docker image with the following command : 
+
+`docker build -t drb-app-backend --file .\drb-app-backend\drb-app-backend\Dockerfile .\drb-app-backend\`
+
+Then start the container with the command : 
+
+`docker run --name drb-app-backend -p 48803:80 -d --rm drb-app-backend`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
