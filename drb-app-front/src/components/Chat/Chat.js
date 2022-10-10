@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { HubConnectionBuilder } from '@microsoft/signalr';
+import SignalRConnection from '../../services/signalRConnection';
 
 import ChatWindow from './../ChatWindow/ChatWindow';
 import ChatInput from './../ChatInput/ChatInput';
@@ -14,33 +14,25 @@ const Chat = () => {
     latestChat.current = chat;
 
     useEffect(() => {
-        const newConnection = new HubConnectionBuilder()
-            .withUrl('http://localhost:48803/drb')
-            .withAutomaticReconnect()
-            .build();
-
+        const newConnection = SignalRConnection.getInstance();
         setConnection(newConnection);
     }, []);
 
     useEffect(() => {
         if (connection) {
-            connection.start()
-                .then(result => {
-                    connection.send('Create');
-                    console.log('Connected!');
-                    
-                    connection.on('ReceiveMessage', (user, message) => {
-                        const chatMessage = {
-                            user: user,
-                            message: message
-                        };
-                        const updatedChat = [...latestChat.current];
-                        updatedChat.push(chatMessage);
-                    
-                        setChat(updatedChat);
-                    });
-                })
-                .catch(e => console.log('Connection failed: ', e));
+            connection.send('Create');
+            console.log('Connected!');
+            
+            connection.on('ReceiveMessage', (user, message) => {
+                const chatMessage = {
+                    user: user,
+                    message: message
+                };
+                const updatedChat = [...latestChat.current];
+                updatedChat.push(chatMessage);
+            
+                setChat(updatedChat);
+            });
         }
     }, [connection]);
 

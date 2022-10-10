@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SignalRConnection from '../../services/signalRConnection';
 
 import './UILobbyManager.scss';
 
@@ -7,20 +8,35 @@ export default function UILobbyManager(props) {
     const [id, setID] = useState("");
 
     const navigate = useNavigate();
+    const [ connection, setConnection ] = useState(null);
     
+    useEffect(() => {
+        const newConnection = SignalRConnection.getInstance();
+        setConnection(newConnection);
+    }, []);
+
     const handleJoin = (evt) => {
         evt.preventDefault();
         if(!id) {
             alert("Prout")
         } else {
-            let idRoute = "/lobby/" + id
-            navigate(idRoute)
+            connection.invoke("Join", id)
+            .then(function (result) {
+                let idRoute = "/lobby/" + result.id
+                navigate(idRoute)
+            })
         }
     }
     const handleCreate = (evt) => {
-        // TO DO LA CREATION ICI
         evt.preventDefault();
+        connection.invoke("Create")
+        .then(function (result) {
+            let idRoute = "/lobby/" + result.id;
+            navigate(idRoute)
+        });
     }
+
+
 
     return (
         <section className='LobbyManager-wrapper'>
@@ -33,8 +49,8 @@ export default function UILobbyManager(props) {
                     onChange={e => setID(e.target.value)}
                 />
                 <div className='LobbyManagerBtn-wrapper'>
-                    <button className='CreateLobby-btn' type="submit" onClick={handleCreate}>CREER</button>
-                    <button className='JoinLobby-btn' type="submit" onClick={handleJoin}>REJOINDRE</button>
+                    <button className='CreateLobby-btn' type="button" onClick={handleCreate}>CREER</button>
+                    <button className='JoinLobby-btn' type="button" onClick={handleJoin}>REJOINDRE</button>
                 </div>
             </form>
         </section>
