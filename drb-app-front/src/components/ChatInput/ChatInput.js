@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './ChatInput.scss';
+
 export default function ChatInput(props) {
     const [user, setUser] = useState('');
     const [message, setMessage] = useState('');
@@ -18,35 +20,22 @@ export default function ChatInput(props) {
         }
     }
 
-    const onUserUpdate = (e) => {
-        setUser(e.target.value);
-    }
-
     const onInputMessageChange = (e) => {
         setMessage(e.target.value);
+        setUser("CONSTANTIN");
     }
 
     return (
-        <form 
-            onSubmit={onSubmit}>
-            <label htmlFor="user">User:</label>
-            <br />
-            <input 
-                id="user" 
-                name="user" 
-                value={user}
-                onChange={onUserUpdate} />
-            <br/>
-            <label htmlFor="message">Message:</label>
-            <br />
-            <input 
+        <form className='ChatInput-form' onSubmit={onSubmit}>
+            <button className='ChatInput-btn' type='submit'>{'>'}</button>
+            <input
+                className='ChatInput-input' 
                 type="text"
                 id="message"
-                name="message" 
+                name="message"
+                placeholder="Entrez votre réponse ici" 
                 value={message}
                 onChange={onInputMessageChange} />
-            <br/><br/>
-            <button>Submit</button>
         </form>
     )
 };

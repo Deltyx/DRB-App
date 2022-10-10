@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Message = (props) => (
-    <div style={{ background: "#eee", borderRadius: '5px', padding: '0 10px' }}>
-        <p><strong>{props.user}</strong> says:</p>
-        <p>{props.message}</p>
-    </div>
-);
+import './Message.scss';
 
-export default Message;
+export default function Message(props) {
+    return(
+        <article className='Message-wrapper'>
+            <p className='Message-content'>{props.user} : {props.message}</p>
+        </article>
+    )
+};

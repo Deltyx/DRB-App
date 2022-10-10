@@ -4,6 +4,8 @@ import { HubConnectionBuilder } from '@microsoft/signalr';
 import ChatWindow from './../ChatWindow/ChatWindow';
 import ChatInput from './../ChatInput/ChatInput';
 
+import './Chat.scss';
+
 const Chat = () => {
     const [ connection, setConnection ] = useState(null);
     const [ chat, setChat ] = useState([]);
@@ -58,11 +60,11 @@ const Chat = () => {
     }
 
     return (
-        <div>
-            <ChatInput sendMessage={sendMessage} />
-            <hr />
+        <section className='Chat-wrapper'>
             <ChatWindow chat={chat}/>
-        </div>
+            <hr />
+            <ChatInput sendMessage={sendMessage} />
+        </section>
     );
 };
 

@@ -2,7 +2,9 @@ import React from 'react';
 
 import Message from './../Message/Message';
 
-const ChatWindow = (props) => {
+import './ChatWindow.scss';
+
+export default function ChatWindow(props) {
     const chat = props.chat
         .map(m => <Message 
             key={Date.now() * Math.random()}
@@ -10,10 +12,8 @@ const ChatWindow = (props) => {
             message={m.message}/>);
 
     return(
-        <div>
+        <section className='ChatWindow-wrapper'>
             {chat}
-        </div>
+        </section>
     )
 };
-
-export default ChatWindow;

@@ -1,0 +1,40 @@
+@import './../../style/Theme.scss';
+
+.ChatInput-form {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.ChatInput-input {
+    height: 22px;
+    width: 89%;
+
+    font-size: 18px;
+    font-family: $TEXT_FONT;
+
+    border-radius: 5px;
+}
+
+.ChatInput-btn {
+    height: 28px;
+    width: 7.5%;
+
+    font-size: 20px;
+    font-family: $TEXT_FONT;
+
+    background-color: $TERTIARY_BACKGROUND_COLOR;
+    color: white;
+
+    border: 1px solid $TERTIARY_BACKGROUND_COLOR;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out;
+}
+
+.ChatInput-btn:hover,
+.ChatInput-btn:focus {
+    cursor: pointer;
+    background-color: $SECONDARY_BACKGROUND_COLOR;
+    color: $TERTIARY_BACKGROUND_COLOR;
+}
