@@ -20,7 +20,6 @@ const Chat = () => {
 
     useEffect(() => {
         if (connection) {
-            connection.send('Create');
             console.log('Connected!');
             
             connection.on('ReceiveMessage', (user, message) => {
